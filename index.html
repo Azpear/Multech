@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape of You| Interactive Math Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles-container" id="particles-js"></div>
+    
+    <header>
+        <div class="header-content">
+            <h1><span class="math-icon">🧮</span> Shape of You</h1>
+            <p class="tagline">Where math comes to life!</p>
+
+        </div>
+        <div class="floating-shapes">
+            <div class="shape triangle"></div>
+            <div class="shape circle"></div>
+            <div class="shape square"></div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="intro-section">
+            <div class="intro-text">
+                <h2>Discover the Magic of Geometry</h2>
+                <p>Our interactive videos make learning geometry fun and easy. Perfect for classroom teaching or self-study!</p>
+                <button class="cta-button">Start Learning <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="intro-image">
+                <img src="assets/geometry-fun.jpg" alt="Kids enjoying geometry">
+            </div>
+        </section>
+        
+         <section class="video-section">
+            <h2 class="section-title"><i class="fas fa-play-circle"></i> Learning Videos</h2>
+            <div class="video-grid">
+                <!-- Triangle Video Card -->
+                <div class="video-card" data-video="triangle">
+                    <div class="card-thumbnail">
+                        <img src="assets/triangle-icon.jpg" alt="Triangle" class="thumbnail-image">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Triangles Explained</h3>
+                        <p>Learn about different types of triangles and their properties.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 75%"></div>
+                            <span>75% watched</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="duration"><i class="far fa-clock"></i> 12:45</span>
+                        <span class="difficulty easy">Easy</span>
+                    </div>
+                </div>
+                
+                <!-- Pythagoras Video Card -->
+                <div class="video-card" data-video="pythagoras">
+                    <div class="card-thumbnail">
+                        <img src="assets/pythagoras-icon.jpg" alt="Pythagoras" class="thumbnail-image">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Pythagorean Theorem</h3>
+                        <p>Understand this fundamental theorem with real-world examples.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 40%"></div>
+                            <span>40% watched</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="duration"><i class="far fa-clock"></i> 15:30</span>
+                        <span class="difficulty medium">Medium</span>
+                    </div>
+                </div>
+                
+                <!-- Angle Video Card -->
+                <div class="video-card" data-video="angle">
+                    <div class="card-thumbnail">
+                        <img src="assets/angle-icon.jpg" alt="Angles" class="thumbnail-image">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>All About Angles</h3>
+                        <p>Measure, classify and calculate angles in polygons.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 90%"></div>
+                            <span>90% watched</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="duration"><i class="far fa-clock"></i> 8:20</span>
+                        <span class="difficulty easy">Easy</span>
+                    </div>
+                </div>
+                
+                <!-- Circle Video Card -->
+                <div class="video-card" data-video="circle">
+                    <div class="card-thumbnail">
+                        <img src="assets/circle-icon.jpg" alt="Circle" class="thumbnail-image">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Circle Geometry</h3>
+                        <p>Explore circumference, area, arcs and sectors.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 25%"></div>
+                            <span>25% watched</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="duration"><i class="far fa-clock"></i> 18:15</span>
+                        <span class="difficulty hard">Hard</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features-section">
+            <h2 class="section-title"><i class="fas fa-star"></i> Why Teachers Love Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>Classroom Ready</h3>
+                    <p>Perfect for interactive whiteboard lessons and group activities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Curriculum Aligned</h3>
+                    <p>Matches national standards for middle school mathematics.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Brain-Friendly</h3>
+                    <p>Designed using cognitive science principles for better retention.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <video id="modalVideo" controls>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-info">
+                <h2 id="videoTitle">Video Title</h2>
+                <div class="video-meta">
+                    <span id="videoDuration"><i class="far fa-clock"></i> 00:00</span>
+                    <span id="videoDifficulty">Difficulty: Easy</span>
+                </div>
+                <p id="videoDescription">Video description will appear here.</p>
+                <div class="action-buttons">
+                    <button class="download-btn"><i class="fas fa-download"></i> Download Slides</button>
+                    <button class="quiz-btn"><i class="fas fa-question-circle"></i> Take Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="math-icon">🧮</span>
+                <h3>Geometry Playground</h3>
+                <p>Making math magical since 2023</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-video"></i> All Videos</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Worksheets</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> For Teachers</a></li>
+                    <li><a href="#"><i class="fas fa-child"></i> For Students</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Geometry Playground. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

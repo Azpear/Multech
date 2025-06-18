@@ -1,0 +1,238 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Particles.js
+    particlesJS('particles-js', {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#4361ee"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                }
+            },
+            "opacity": {
+                "value": 0.3,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#4361ee",
+                "opacity": 0.2,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 2,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "grab"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 140,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+
+    // Video Modal Functionality
+    const videoCards = document.querySelectorAll('.video-card');
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const videoTitle = document.getElementById('videoTitle');
+    const videoDuration = document.getElementById('videoDuration');
+    const videoDifficulty = document.getElementById('videoDifficulty');
+    const videoDescription = document.getElementById('videoDescription');
+    const closeModal = document.querySelector('.close-modal');
+
+    // Video data
+    const videos = {
+        triangle: {
+            title: "Triangles Explained",
+            duration: "12:45",
+            difficulty: "Easy",
+            description: "This video covers all types of triangles (equilateral, isosceles, scalene) and their properties including angles and side lengths. Perfect for beginners!",
+            path: "videos/triangles.mp4"
+        },
+        pythagoras: {
+            title: "Pythagorean Theorem",
+            duration: "15:30",
+            difficulty: "Medium",
+            description: "Learn the famous a² + b² = c² formula with visual proofs and practical applications in real-world problems.",
+            path: "videos/pythagoras.mp4"
+        },
+        angle: {
+            title: "All About Angles",
+            duration: "8:20",
+            difficulty: "Easy",
+            description: "Understand how to measure, classify and calculate angles in various geometric shapes and polygons.",
+            path: "videos/angles.mp4"
+        },
+        circle: {
+            title: "Circle Geometry",
+            duration: "18:15",
+            difficulty: "Hard",
+            description: "Explore circumference, area, arcs, sectors and other circle concepts with interactive examples.",
+            path: "videos/circles.mp4"
+        }
+    };
+
+    // Add click event to video cards
+    videoCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const videoType = this.getAttribute('data-video');
+            const videoData = videos[videoType];
+            
+            // Set modal content
+            videoTitle.textContent = videoData.title;
+            videoDuration.innerHTML = `<i class="far fa-clock"></i> ${videoData.duration}`;
+            videoDifficulty.textContent = `Difficulty: ${videoData.difficulty}`;
+            videoDescription.textContent = videoData.description;
+            modalVideo.setAttribute('src', videoData.path);
+            
+            // Show modal
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+            
+            // Play video
+            modalVideo.load();
+            modalVideo.play();
+        });
+    });
+
+    // Close modal
+    closeModal.addEventListener('click', function() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+        modalVideo.pause();
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+            modalVideo.pause();
+        }
+    });
+
+    // Add animation to floating shapes
+    const shapes = document.querySelectorAll('.shape');
+    shapes.forEach((shape, index) => {
+        // Random start position and animation duration
+        const startY = Math.random() * 20 - 10;
+        const duration = 3 + Math.random() * 2;
+        const delay = index * 0.5;
+        
+        // Apply animation
+        shape.style.transform = `translateY(${startY}px) rotate(45deg)`;
+        shape.style.animation = `float ${duration}s ease-in-out ${delay}s infinite alternate`;
+        
+        // Add hover effect
+        shape.addEventListener('mouseenter', () => {
+            shape.style.animationPlayState = 'paused';
+        });
+        
+        shape.addEventListener('mouseleave', () => {
+            shape.style.animationPlayState = 'running';
+        });
+    });
+
+    // Add animation to CTA button
+    const ctaButton = document.querySelector('.cta-button');
+    ctaButton.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px) scale(1.05)';
+    });
+    
+    ctaButton.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// Add floating animation to CSS
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes float {
+        0% {
+            transform: translateY(0px) rotate(45deg);
+        }
+        50% {
+            transform: translateY(-20px) rotate(45deg);
+        }
+        100% {
+            transform: translateY(0px) rotate(45deg);
+        }
+    }
+`;
+document.head.appendChild(style);
