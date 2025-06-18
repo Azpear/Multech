@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: "1.50",
             difficulty: "Easy",
             description: "Understand how to measure, classify and calculate angles in various geometric shapes and polygons.",
-            embedUrl: "https://youtu.be/3pcUIFiensQ?si=PH9HkpWTRB3Ftu5U", // Replace with your actual YouTube video ID
+            embedUrl: "https://www.youtube.com/embed/3pcUIFiensQ", // Replace with your actual YouTube video ID
             quizLink: "https://quizizz.com/join?gc=25447148"
         },
         circle: {
