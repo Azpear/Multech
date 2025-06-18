@@ -109,22 +109,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Video Modal Functionality
     const videoCards = document.querySelectorAll('.video-card');
     const modal = document.getElementById('videoModal');
-    const modalVideo = document.getElementById('modalVideo');
     const videoTitle = document.getElementById('videoTitle');
     const videoDuration = document.getElementById('videoDuration');
     const videoDifficulty = document.getElementById('videoDifficulty');
     const videoDescription = document.getElementById('videoDescription');
     const closeModal = document.querySelector('.close-modal');
     const quizBtn = document.getElementById('quizBtn');
+    const videoContainer = document.querySelector('.video-container');
 
-    // Video data with correct paths and quiz links
+    // Video data with YouTube embed URLs and quiz links
     const videos = {
         triangle: {
             title: "Triangles Explained",
             duration: "12:45",
             difficulty: "Easy",
             description: "This video covers all types of triangles (equilateral, isosceles, scalene) and their properties including angles and side lengths. Perfect for beginners!",
-            path: "videos/triangles.mp4",
+            embedUrl: "https://www.youtube.com/embed/YOUR_TRIANGLE_VIDEO_ID", // Replace with your actual YouTube video ID
             quizLink: "https://quizizz.com/join/quiz/your-triangle-quiz-id/go"
         },
         pythagoras: {
@@ -132,23 +132,23 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: "15:30",
             difficulty: "Medium",
             description: "Learn the famous a² + b² = c² formula with visual proofs and practical applications in real-world problems.",
-            path: "videos/pythagoras.mp4",
+            embedUrl: "https://www.youtube.com/embed/YOUR_PYTHAGORAS_VIDEO_ID", // Replace with your actual YouTube video ID
             quizLink: "https://quizizz.com/join/quiz/your-pythagoras-quiz-id/go"
         },
         angle: {
             title: "All About Angles",
-            duration: "8:20",
+            duration: "1.50",
             difficulty: "Easy",
             description: "Understand how to measure, classify and calculate angles in various geometric shapes and polygons.",
-            path: "videos/angle-lesson.mp4", // Direct file path
-            quizLink: "https://quizizz.com/join?gc=25447148" // Your specific quiz link
+            embedUrl: "https://www.youtube.com/embed/YOUR_ANGLE_VIDEO_ID", // Replace with your actual YouTube video ID
+            quizLink: "https://quizizz.com/join?gc=25447148"
         },
         circle: {
             title: "Circle Geometry",
             duration: "18:15",
             difficulty: "Hard",
             description: "Explore circumference, area, arcs, sectors and other circle concepts with interactive examples.",
-            path: "videos/circles.mp4",
+            embedUrl: "https://www.youtube.com/embed/YOUR_CIRCLE_VIDEO_ID", // Replace with your actual YouTube video ID
             quizLink: "https://quizizz.com/join/quiz/your-circles-quiz-id/go"
         }
     };
@@ -165,24 +165,22 @@ document.addEventListener('DOMContentLoaded', function() {
             videoDifficulty.textContent = `Difficulty: ${videoData.difficulty}`;
             videoDescription.textContent = videoData.description;
             
-            // Set video source
-            modalVideo.setAttribute('src', videoData.path);
+            // Create YouTube iframe
+            videoContainer.innerHTML = `
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="${videoData.embedUrl}?autoplay=1&rel=0" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="position: absolute; top: 0; left: 0;"
+                ></iframe>
+            `;
             
             // Show modal
             modal.style.display = "flex";
             document.body.style.overflow = "hidden";
-            
-            // Load and play video with error handling
-            modalVideo.load();
-            
-            modalVideo.onerror = function() {
-                alert("Error loading video. Please check the file path and ensure the video exists.");
-            };
-            
-            modalVideo.play().catch(error => {
-                console.error("Video play failed:", error);
-                alert("Video playback failed. Please try again or check the video format.");
-            });
         });
     });
 
@@ -195,8 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
     closeModal.addEventListener('click', function() {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
-        modalVideo.pause();
-        modalVideo.removeAttribute('src'); // Reset video source
+        videoContainer.innerHTML = ''; // Clear the iframe
     });
 
     // Close modal when clicking outside
@@ -204,8 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target === modal) {
             modal.style.display = "none";
             document.body.style.overflow = "auto";
-            modalVideo.pause();
-            modalVideo.removeAttribute('src'); // Reset video source
+            videoContainer.innerHTML = ''; // Clear the iframe
         }
     });
 
