@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "retina_detect": true
     });
 
-    // Video Modal Functionality
+     // Video Modal Functionality
     const videoCards = document.querySelectorAll('.video-card');
     const modal = document.getElementById('videoModal');
     const videoTitle = document.getElementById('videoTitle');
@@ -121,26 +121,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const videos = {
         triangle: {
             title: "Triangles Explained",
-            duration: "12:45",
+            duration: "1:20",
             difficulty: "Easy",
             description: "This video covers all types of triangles (equilateral, isosceles, scalene) and their properties including angles and side lengths. Perfect for beginners!",
-            embedUrl: "https://www.youtube.com/embed/YOUR_TRIANGLE_VIDEO_ID", // Replace with your actual YouTube video ID
-            quizLink: "https://quizizz.com/join/quiz/your-triangle-quiz-id/go"
+            embedUrl: "https://www.youtube.com/embed/6m7mw7G9HAs?si=AR-z8VP8uTvw2hlj",
+            quizLink: "https://quizizz.com/join?gc=07558892"
         },
         pythagoras: {
             title: "Pythagorean Theorem",
             duration: "15:30",
             difficulty: "Medium",
             description: "Learn the famous a² + b² = c² formula with visual proofs and practical applications in real-world problems.",
-            embedUrl: "https://www.youtube.com/embed/YOUR_PYTHAGORAS_VIDEO_ID", // Replace with your actual YouTube video ID
-            quizLink: "https://quizizz.com/join/quiz/your-pythagoras-quiz-id/go"
+            embedUrl: "https://www.youtube.com/embed/cgvMTS1k6rk?si=qUzymZ6Od-uqpF7E",
+            quizLink: "https://quizizz.com/join?gc=406999&source=liveDashboard"
         },
         angle: {
             title: "All About Angles",
-            duration: "1.50",
+            duration: "1:50",
             difficulty: "Easy",
             description: "Understand how to measure, classify and calculate angles in various geometric shapes and polygons.",
-            embedUrl: "https://www.youtube.com/embed/3pcUIFiensQ", // Replace with your actual YouTube video ID
+            embedUrl: "https://www.youtube.com/embed/3pcUIFiensQ",
             quizLink: "https://quizizz.com/join?gc=25447148"
         },
         circle: {
@@ -148,16 +148,19 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: "18:15",
             difficulty: "Hard",
             description: "Explore circumference, area, arcs, sectors and other circle concepts with interactive examples.",
-            embedUrl: "https://www.youtube.com/embed/YOUR_CIRCLE_VIDEO_ID", // Replace with your actual YouTube video ID
-            quizLink: "https://quizizz.com/join/quiz/your-circles-quiz-id/go"
+            embedUrl: "https://www.youtube.com/embed/QM_h6dOZo3w?si=tw72yLbU37uUE_fh",
+            quizLink: "https://quizizz.com/join?gc=27097836"
         }
     };
+
+    // Store the current video type
+    let currentVideoType = null;
 
     // Add click event to video cards
     videoCards.forEach(card => {
         card.addEventListener('click', function() {
-            const videoType = this.getAttribute('data-video');
-            const videoData = videos[videoType];
+            currentVideoType = this.getAttribute('data-video');
+            const videoData = videos[currentVideoType];
             
             // Set modal content
             videoTitle.textContent = videoData.title;
@@ -184,9 +187,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Quiz button functionality - redirect to your specific quiz
+    // Quiz button functionality - redirect to the specific quiz for the current video
     quizBtn.addEventListener('click', function() {
-        window.open("https://quizizz.com/join?gc=25447148", "_blank");
+        if (currentVideoType && videos[currentVideoType]) {
+            window.open(videos[currentVideoType].quizLink, "_blank");
+        } else {
+            // Fallback in case something goes wrong
+            window.open("https://quizizz.com", "_blank");
+        }
     });
 
     // Close modal
@@ -204,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
             videoContainer.innerHTML = ''; // Clear the iframe
         }
     });
-
+ 
     // Add animation to floating shapes
     const shapes = document.querySelectorAll('.shape');
     shapes.forEach((shape, index) => {
