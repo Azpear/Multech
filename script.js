@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             difficulty: "Medium",
             description: "Learn the famous a² + b² = c² formula with visual proofs and practical applications in real-world problems.",
             embedUrl: "https://www.youtube.com/embed/cgvMTS1k6rk",
-            quizLink: "https://quizizz.com/join?gc=406999&source=liveDashboard"
+            quizLink: "https://quizizz.com/join?gc=52885228"
         },
         angle: {
             title: "All About Angles",
