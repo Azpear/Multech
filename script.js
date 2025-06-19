@@ -123,15 +123,15 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Triangles Explained",
             duration: "1:20",
             difficulty: "Easy",
-            description: "This video covers all types of triangles (equilateral, isosceles, scalene) and their properties including angles and side lengths. Perfect for beginners!",
+            description: "This video covers all types of triangles Perfect for beginners!",
             embedUrl: "https://www.youtube.com/embed/6m7mw7G9HAs",
             quizLink: "https://quizizz.com/join?gc=07558892"
         },
         pythagoras: {
-            title: "Pythagorean Theorem",
+            title: "Pythagoras Theorem",
             duration: "3:13",
             difficulty: "Medium",
-            description: "Learn the famous a² + b² = c² formula with visual proofs and practical applications in real-world problems.",
+            description: "Love Skate Love Pythagoras Theorem.",
             embedUrl: "https://www.youtube.com/embed/cgvMTS1k6rk",
             quizLink: "https://quizizz.com/join?gc=52885228"
         },
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "All About Angles",
             duration: "1:50",
             difficulty: "Easy",
-            description: "Understand how to measure, classify and calculate angles in various geometric shapes and polygons.",
+            description: "Learning Angle is FUNN.",
             embedUrl: "https://www.youtube.com/embed/3pcUIFiensQ",
             quizLink: "https://quizizz.com/join?gc=25447148"
         },
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Circle Geometry",
             duration: "1:39",
             difficulty: "Hard",
-            description: "Explore circumference, area, arcs, sectors and other circle concepts with interactive examples.",
+            description: "Why the long face? Circle is the BEST.",
             embedUrl: "https://www.youtube.com/embed/QM_h6dOZo3w",
             quizLink: "https://quizizz.com/join?gc=27097836"
         }
