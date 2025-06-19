@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         pythagoras: {
             title: "Pythagorean Theorem",
-            duration: "15:30",
+            duration: "3:13",
             difficulty: "Medium",
             description: "Learn the famous a² + b² = c² formula with visual proofs and practical applications in real-world problems.",
             embedUrl: "https://www.youtube.com/embed/cgvMTS1k6rk?si=qUzymZ6Od-uqpF7E",
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         circle: {
             title: "Circle Geometry",
-            duration: "18:15",
+            duration: "1:39",
             difficulty: "Hard",
             description: "Explore circumference, area, arcs, sectors and other circle concepts with interactive examples.",
             embedUrl: "https://www.youtube.com/embed/QM_h6dOZo3w?si=tw72yLbU37uUE_fh",
