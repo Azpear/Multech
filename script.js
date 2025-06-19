@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "retina_detect": true
     });
 
-     // Video Modal Functionality
+    // Video Modal Functionality
     const videoCards = document.querySelectorAll('.video-card');
     const modal = document.getElementById('videoModal');
     const videoTitle = document.getElementById('videoTitle');
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: "1:20",
             difficulty: "Easy",
             description: "This video covers all types of triangles (equilateral, isosceles, scalene) and their properties including angles and side lengths. Perfect for beginners!",
-            embedUrl: "https://www.youtube.com/embed/6m7mw7G9HAs?si=AR-z8VP8uTvw2hlj",
+            embedUrl: "https://www.youtube.com/embed/6m7mw7G9HAs",
             quizLink: "https://quizizz.com/join?gc=07558892"
         },
         pythagoras: {
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: "3:13",
             difficulty: "Medium",
             description: "Learn the famous a² + b² = c² formula with visual proofs and practical applications in real-world problems.",
-            embedUrl: "https://www.youtube.com/embed/cgvMTS1k6rk?si=qUzymZ6Od-uqpF7E",
+            embedUrl: "https://www.youtube.com/embed/cgvMTS1k6rk",
             quizLink: "https://quizizz.com/join?gc=406999&source=liveDashboard"
         },
         angle: {
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: "1:39",
             difficulty: "Hard",
             description: "Explore circumference, area, arcs, sectors and other circle concepts with interactive examples.",
-            embedUrl: "https://www.youtube.com/embed/QM_h6dOZo3w?si=tw72yLbU37uUE_fh",
+            embedUrl: "https://www.youtube.com/embed/QM_h6dOZo3w",
             quizLink: "https://quizizz.com/join?gc=27097836"
         }
     };
@@ -168,12 +168,12 @@ document.addEventListener('DOMContentLoaded', function() {
             videoDifficulty.textContent = `Difficulty: ${videoData.difficulty}`;
             videoDescription.textContent = videoData.description;
             
-            // Create YouTube iframe
+            // Create YouTube iframe with proper parameters
             videoContainer.innerHTML = `
                 <iframe 
                     width="100%" 
                     height="100%" 
-                    src="${videoData.embedUrl}?autoplay=1&rel=0" 
+                    src="${videoData.embedUrl}?autoplay=1&rel=0&enablejsapi=1" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen
@@ -184,6 +184,17 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show modal
             modal.style.display = "flex";
             document.body.style.overflow = "hidden";
+            
+            // Add error handling
+            const iframe = videoContainer.querySelector('iframe');
+            iframe.onerror = function() {
+                videoContainer.innerHTML = `
+                    <div class="video-error" style="padding: 2rem; text-align: center; color: var(--danger);">
+                        <p>Could not load video. Please try again later.</p>
+                        <a href="${videoData.embedUrl}" target="_blank" style="color: var(--primary);">Open on YouTube</a>
+                    </div>
+                `;
+            };
         });
     });
 
